@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+  <row>
+    <character>player</character>
+    <hp>2</hp>
+    <delay>0.5f</delay>
+  </row>
+</rows>
