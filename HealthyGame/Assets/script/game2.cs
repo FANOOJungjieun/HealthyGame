@@ -23,7 +23,7 @@ public class game2 : MonoBehaviour
     void Start()
     {
         TileSpawn();
-        TileSpawn(); //게임특성상 한번에 타일이 2개씩 등장함.
+        TileSpawn(); //타일 2개 등장
         Bscore.text = PlayerPrefs.GetInt("BestScore2048").ToString();
         Money.text = "Money : " + PlayerPrefs.GetInt("money").ToString();
         destroy = false;
@@ -49,7 +49,7 @@ public class game2 : MonoBehaviour
             }
 
             touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            hitInformation = Physics2D.Raycast(touchPos, Vector2.zero, 0f);
+            hitInformation = Physics2D.Raycast(touchPos, Vector2.zero, 0f); //카메라를 통해 위치지정
 
         } // or뒤는 pc용. touchcount = 터치중인 손가락의 수
 
