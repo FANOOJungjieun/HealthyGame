@@ -8,11 +8,11 @@ public class game2 : MonoBehaviour
     public GameObject[] n;
     GameObject[,] mat = new GameObject[4, 4];
     public GameObject end;
-    public Text Score, Bscore, Plus;
+    public Text Score, Bscore, Plus, Money;
 
     Vector3 startpos, nextpos;
     int x, y, i, j, k, l, scorenum;
-    bool check, mov, dead;
+    bool check, mov, dead, moneycount;
     public bool destroy;
 
     Vector2 touchPos;
@@ -25,7 +25,9 @@ public class game2 : MonoBehaviour
         TileSpawn();
         TileSpawn(); //게임특성상 한번에 타일이 2개씩 등장함.
         Bscore.text = PlayerPrefs.GetInt("BestScore2048").ToString();
+        Money.text = "Money : " + PlayerPrefs.GetInt("money").ToString();
         destroy = false;
+        moneycount = false;
     }
 
     // Update is called once per frame
@@ -54,10 +56,16 @@ public class game2 : MonoBehaviour
         if (destroy)
         {
             int walkcount = PlayerPrefs.GetInt("money", 0);
-            if(walkcount >= 100)
+
+            if(walkcount >= 1)
             {
-                walkcount = walkcount - 100;
-                PlayerPrefs.SetInt("money", walkcount);
+                if (moneycount)
+                {
+                    walkcount = walkcount - 1;
+                    PlayerPrefs.SetInt("money", walkcount);
+                    moneycount = false;
+                }
+                Money.text = "Money : " + PlayerPrefs.GetInt("money").ToString();
 
                 if (hitInformation.collider != null)
                 {
@@ -197,6 +205,7 @@ public class game2 : MonoBehaviour
     public void ItemButton()
     {
         destroy = true;
+        moneycount = true;
     }
 
     void TileSpawn()
@@ -209,7 +218,7 @@ public class game2 : MonoBehaviour
             if (mat[x, y] == null) break;
         }
         mat[x, y] = Instantiate(Random.Range(0, 8) > 0 ? n[0] : n[1], new Vector3(287f * x - 436f, 287f * y - 270f, 0), Quaternion.identity);
-        mat[x, y].GetComponent<Animator>().SetTrigger("Spawn"); // 애니메이션 삽입
+        //mat[x, y].GetComponent<Animator>().SetTrigger("Spawn"); // 애니메이션 삽입
 
     }
 
@@ -236,7 +245,7 @@ public class game2 : MonoBehaviour
             mat[x1, y1] = null;
             mat[x2, y2] = Instantiate(n[j + 1], new Vector3(287f * x2 - 436f, 287f * y2 - 270f, 0), Quaternion.identity);
             mat[x2, y2].tag = "Combine";
-            mat[x2, y2].GetComponent<Animator>().SetTrigger("combine");
+            //mat[x2, y2].GetComponent<Animator>().SetTrigger("combine");
 
             scorenum = scorenum + (int)Mathf.Pow(2, j+2);
         }

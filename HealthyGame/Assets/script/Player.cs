@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        Makepara();
     }
 
     void Awake()
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         Makepara();
     }
 
-    void OnEnable()
+    /*void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
+    */
 
     void Update()
     {

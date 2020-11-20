@@ -11,9 +11,12 @@ public class ReturnHomeButton : MonoBehaviour
 
     void Awake()
     {
-        normalpanal = GameObject.Find("Canvas").transform.Find("normal").gameObject;
-        pausepanal = GameObject.Find("Canvas").transform.Find("stop").gameObject;
-        pausepanal.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "02.game")
+        {
+            normalpanal = GameObject.Find("Canvas").transform.Find("normal").gameObject;
+            pausepanal = GameObject.Find("Canvas").transform.Find("stop").gameObject;
+            pausepanal.SetActive(false);
+        }
     }
 
     // Start is called before the first frame update

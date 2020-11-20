@@ -10,7 +10,7 @@ public class gameManager : MonoBehaviour
     public static gameManager instance;
     public Text scoretext;
     public Text bscoretext;
-    public Text steptext;
+    public Text steptext, Score2048;
     private int score = 0;
     private int best = 0;
     private int step = 0;
@@ -42,7 +42,7 @@ public class gameManager : MonoBehaviour
 
     void Start()
     {
-
+        if (SceneManager.GetActiveScene().name == "01.start") Score2048.text = "Best 2048 : " + PlayerPrefs.GetInt("BestScore2048").ToString();
     }
 
 

@@ -39,6 +39,8 @@ public class respawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!IsInvoking()) InvokeRepeating("rspawn", 3, 1);
+
         timesize += Time.deltaTime;
         if(timesize > 10.0f)
         {

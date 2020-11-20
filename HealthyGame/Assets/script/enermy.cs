@@ -35,7 +35,7 @@ public class enermy : MonoBehaviour
     {
         if (ent.gameObject.tag.Equals("player"))
         {
-            hp -= GameObject.Find("bullet(Clone)").GetComponent<bullet>().power;
+            if(GameObject.Find("bullet(Clone)")) hp -= GameObject.Find("bullet(Clone)").GetComponent<bullet>().power;
 
             if(hp <= 0)
             {
