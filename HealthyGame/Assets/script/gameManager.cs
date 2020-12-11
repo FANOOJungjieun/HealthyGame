@@ -10,7 +10,7 @@ public class gameManager : MonoBehaviour
     public static gameManager instance;
     public Text scoretext;
     public Text bscoretext;
-    public Text steptext, Score2048;
+    public Text steptext, Score2048, scorematch3;
     private int score = 0;
     private int best = 0;
     private int step = 0;
@@ -25,14 +25,18 @@ public class gameManager : MonoBehaviour
         }
         best = PlayerPrefs.GetInt(KeyString, 0);
         step = PlayerPrefs.GetInt("steps", 0);
-        bscoretext.text = "Best Score : " + best;
-        if (SceneManager.GetActiveScene().name == "01.start")  steptext.text = "steps : " + step;
+        bscoretext.text = best.ToString();
+        if (SceneManager.GetActiveScene().name == "01.start") {
+            steptext.text = step.ToString();
+            scorematch3.text = PlayerPrefs.GetInt("BestMatch3", 0).ToString();
+        }
+
     }
 
     public void Addnum(int scr)
     {
         score += scr;
-        scoretext.text = "Score : " + score;
+        scoretext.text = score.ToString();
 
         if(score > best)
         {
@@ -42,7 +46,7 @@ public class gameManager : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "01.start") Score2048.text = "Best 2048 : " + PlayerPrefs.GetInt("BestScore2048").ToString();
+        if (SceneManager.GetActiveScene().name == "01.start") Score2048.text = PlayerPrefs.GetInt("BestScore2048").ToString();
     }
 
 

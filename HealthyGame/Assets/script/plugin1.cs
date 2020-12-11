@@ -95,7 +95,7 @@ public class plugin1 : MonoBehaviour
 
         PlayerPrefs.SetInt("steps", walkcount);
         if(SceneManager.GetActiveScene().name == "03.walk") walktext.text = "사용 가능한 걸음 수 : " + PlayerPrefs.GetInt("steps", 0);
-        if(SceneManager.GetActiveScene().name == "01.start") stp.text = "steps : " + PlayerPrefs.GetInt("steps", 0) ;
+        if(SceneManager.GetActiveScene().name == "01.start") stp.text = PlayerPrefs.GetInt("steps", 0).ToString() ;
     }
 
 }

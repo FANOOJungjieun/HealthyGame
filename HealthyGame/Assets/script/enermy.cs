@@ -33,7 +33,7 @@ public class enermy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D ent)
     {
-        if (ent.gameObject.tag.Equals("player"))
+        if (ent.gameObject.tag.Equals("bullet"))
         {
             if(GameObject.Find("bullet(Clone)")) hp -= GameObject.Find("bullet(Clone)").GetComponent<bullet>().power;
 

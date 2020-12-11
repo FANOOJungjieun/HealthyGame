@@ -17,4 +17,9 @@ public class StartButton : MonoBehaviour
         SceneManager.LoadScene("04.game2");
     }
 
+    public void changeToMatch3()
+    {
+        SceneManager.LoadScene("05.game3");
+    }
+
 }

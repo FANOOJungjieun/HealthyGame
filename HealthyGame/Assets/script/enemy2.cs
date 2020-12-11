@@ -32,7 +32,7 @@ public class enemy2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D ent)
     {
-        if (ent.gameObject.tag.Equals("player"))
+        if (ent.gameObject.tag.Equals("bullet"))
         {
             hp -= GameObject.Find("bullet(Clone)").GetComponent<bullet>().power;
 

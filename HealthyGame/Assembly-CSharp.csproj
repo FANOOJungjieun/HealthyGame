@@ -75,6 +75,7 @@
      <Compile Include="Assets\script\game3.cs" />
      <Compile Include="Assets\script\game3point.cs" />
      <Compile Include="Assets\script\gameManager.cs" />
+     <Compile Include="Assets\script\KilledPieces.cs" />
      <Compile Include="Assets\script\MovePieces.cs" />
      <Compile Include="Assets\script\mystat.cs" />
      <Compile Include="Assets\script\NodePiece.cs" />

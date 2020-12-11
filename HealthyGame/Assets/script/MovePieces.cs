@@ -38,13 +38,13 @@ public class MovePieces : MonoBehaviour
                 if (aDir.x > aDir.y)
                     add = (new game3point((nDir.x > 0) ? 1 : -1, 0));
                 else if (aDir.y > aDir.x)
-                    add = (new game3point(0, (nDir.y > 0) ? 1 : -1));
+                    add = (new game3point(0, (nDir.y > 0) ? -1 : 1));
             }
             newIndex.add(add);
 
             Vector2 pos = game.getPositionFromPoint(moving.index);
             if (!newIndex.Equals(moving.index))
-                pos += game3point.mult(add, 16).ToVector();
+                pos += game3point.mult(new game3point(add.x, -add.y), 16).ToVector();
             moving.MovePositionTo(pos);
 
         }
@@ -63,7 +63,11 @@ public class MovePieces : MonoBehaviour
         if (moving == null) return;
         //Debug.Log("Dropped");
         //newindex가 movinginddex와 일치하지 않으면 조각교환. 그렇지 않으면 조각을 원래위치에.
-        game.ResetPiece(moving);
+
+        if (!newIndex.Equals(moving.index))
+            game.FlipPieces(moving.index, newIndex, true);
+        else
+            game.ResetPiece(moving);
         moving = null;
     }
 }

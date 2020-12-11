@@ -22,6 +22,7 @@ public class ReturnHomeButton : MonoBehaviour
     // Start is called before the first frame update
     public void ChangeToHome()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("01.start");
     }
 
