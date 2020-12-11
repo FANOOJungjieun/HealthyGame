@@ -57,11 +57,11 @@ public class game2 : MonoBehaviour
         {
             int walkcount = PlayerPrefs.GetInt("money", 0);
 
-            if(walkcount >= 1)
+            if(walkcount >= 10)
             {
                 if (moneycount)
                 {
-                    walkcount = walkcount - 1;
+                    walkcount = walkcount - 10;
                     PlayerPrefs.SetInt("money", walkcount);
                     moneycount = false;
                 }
